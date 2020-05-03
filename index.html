@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> Gibberish by Vimanaz </title>
+        <link rel="stylesheet" src="styles.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            h1,h2,h3,h4,h5,h6{
+                font-family: 'Montserrat', sans-serif;
+                color: #de5285 !important;
+            }
+            body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #222;
+            }
+            .quiz{
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+            }
+            .row{
+                margin-bottom: 15px;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                min-width: 275px;
+            }
+            input, textarea{
+                background-color:#222 !important;
+                color: #de5285 !important;
+            }
+            ::-webkit-input-placeholder { /* WebKit browsers */
+                color:    #de5285 !important;
+            }
+            :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color:    #de5285 !important;
+            }
+            ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color:    #de5285 !important;
+            }
+            :-ms-input-placeholder { /* Internet Explorer 10+ */
+                color:    #de5285 !important;
+            }
+            .form-control:active, :focus{
+                border-color: #de5285 !important;
+            }
+            .form-control{
+                border-color: #de5285;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .card{
+                background-color: #222 ;
+                border-color: #de5285 !important;
+                width: 100%;
+                min-width: 285px;
+                margin-top: 50px;
+            }
+            .card-body{
+                width: 100%;
+                min-width: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .btn{
+                background-color: #222 !important;
+                border-color: #de5285 !important;
+                color: #de5285 !important;
+            }
+            .btn :active{
+                color: #de5285 !important;
+            }
+            .btn.active.focus,
+            .btn.active:focus,
+            .btn.focus,
+            .btn.focus:active,
+            .btn:active:focus,
+            .btn:focus {
+                outline: 0 !important;
+                outline-offset: 0  !important;
+                background-image: none  !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none  !important;
+            }
+            .form-control :active{
+                color: #de5285 !important;
+            }
+            .form-control.active.focus,
+            .form-control.active:focus,
+            .form-control.focus,
+            .form-control.focus:active,
+            .form-control:active:focus,
+            .form-control:focus {
+                outline: 0 !important;
+                outline-offset: 0  !important;
+                background-image: none  !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none  !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header text-center">
+            <h1>Gibberish by Team Vimanaz</h1>
+        </div>
+        <div class="my-auto justify-content-center">
+            <div class="card mx-auto">
+                <div class="card-header">
+                    <h4 class="text-center">
+                        <span id= "question"></span>
+                    </h4>
+                </div>
+                <div class="card-body mx-auto">
+                    <div class="timer">
+                        <h2 class="text-center" id="countdown"></h2>
+                        <h6 style="font-size: 12px; color: #de5285 !important;">seconds remaining.</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" id="ans" placeholder="Type Your Guess Here" class="form-control input-lg text-center"><br>
+                        </div>
+                        <p id="hintText" class="mx-auto" style="color: #de5285;"></p>
+                    </div>
+                    <div class="row" style="width: 100%;">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-info" id="hint" onclick="printHint()" style="margin-bottom: 15px;">Get a Hint ?</button>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary mx-auto" id="submit" onclick="nextQues()"" style="margin-bottom: 15px;">Submit Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="vimanazGibberish.js"></script>
+    </body>
+</html>
