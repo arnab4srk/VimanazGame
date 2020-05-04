@@ -111,16 +111,13 @@ function genQues(){
     //console.log(points);
 }
 function genTimer(){
-    var timeleft = 60;
+    var timeleft = 45;
     var Timer = setInterval(function(){
       if(timeleft < 0){
         console.log(points);
         //location.href = "#";
+        displayScore(points);
         $('#endGame').modal('show');
-        $('[id="submit"]').prop('onclick',null).off('click');
-        $('[id="hint"]').prop('onclick',null).off('click');
-        $('[id="ans"]').attr('disabled',"disabled");
-        document.getElementById("question").value = "";
         clearInterval(Timer);
         //genQues();
       } else {
@@ -128,6 +125,14 @@ function genTimer(){
       }
       timeleft--;
     }, 1000);
+}
+function displayScore(points){
+    var point = "\xa0"+ points.toString(10)  + "\xa0";
+    document.getElementById("points").innerHTML = point;
+    $('[id="submit"]').prop('onclick',null).off('click');
+    $('[id="hint"]').prop('onclick',null).off('click');
+    $('[id="ans"]').attr('disabled',"disabled");
+    document.getElementById("question").innerHTML = "You've already attempted it.";
 }
 function printHint(){
     document.getElementById("hintText").innerHTML = JSON.stringify(questions[index].hint);
@@ -137,7 +142,7 @@ function nextQues(){
     //console.log(questions[index].question.toLowerCase())
     //console.log(ans.toLowerCase());
     document.getElementById("ans").value = "";
-    document.getElementById("hintText").value = "";
+    document.getElementById("hintText").innerHTML = "";
     if(ans.toLowerCase() == questions[index].answer.toLowerCase()){
         points++;
     }
