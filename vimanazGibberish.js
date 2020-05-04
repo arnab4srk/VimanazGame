@@ -104,28 +104,25 @@ var i=0;
 var ans = document.getElementById("answer");
 let points =0;
 genQues();
+genTimer();
 function genQues(){
-    genTimer();
     index = Math.floor(Math.random()*Object.keys(questions).length + 1)
     document.getElementById("question").innerHTML = JSON.stringify(questions[index].question);
-    console.log(points);
-    i++;
-    if(i>10 && points < 7){
-        window.location.assign("https://www.google.com");
-    }
-    else if(points == 7){
-        window.location.assign("https://www.google.com");
-    }
+    //console.log(points);
 }
 function genTimer(){
-    var timeleft = 10;
-    var downloadTimer = setInterval(function(){
+    var timeleft = 60;
+    var Timer = setInterval(function(){
       if(timeleft < 0){
-        console.log("Hala Madrid");
-        clearInterval(downloadTimer);
-        document.getElementById("ans").value = "";
-        document.getElementById("hintText").innerHTML = "";
-        genQues();
+        console.log(points);
+        //location.href = "#";
+        $('#endGame').modal('show');
+        $('[id="submit"]').prop('onclick',null).off('click');
+        $('[id="hint"]').prop('onclick',null).off('click');
+        $('[id="ans"]').attr('disabled',"disabled");
+        document.getElementById("question").value = "";
+        clearInterval(Timer);
+        //genQues();
       } else {
         document.getElementById("countdown").innerHTML = timeleft;
       }
@@ -137,15 +134,12 @@ function printHint(){
 }
 function nextQues(){
     let ans = document.getElementById("ans").value;
-    console.log(questions[index].question.toLowerCase())
-    console.log(ans.toLowerCase());
-    if(ans.toLowerCase() == questions[index].answer.toLowerCase() && points <=5){
+    //console.log(questions[index].question.toLowerCase())
+    //console.log(ans.toLowerCase());
+    document.getElementById("ans").value = "";
+    document.getElementById("hintText").value = "";
+    if(ans.toLowerCase() == questions[index].answer.toLowerCase()){
         points++;
-        document.getElementById("ans").value = "";
-        document.getElementById("hintText").value = "";
-        genQues();
     }
-    if(points==7){
-        window.location.assign("https://google.com");
-    }
+    genQues();
 }

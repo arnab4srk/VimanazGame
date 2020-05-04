@@ -30,7 +30,7 @@
                 padding: 0;
                 margin: 0;
                 width: 100%;
-                min-width: 275px;
+                min-width: 235px;
             }
             input, textarea{
                 background-color:#222 !important;
@@ -57,15 +57,15 @@
             }
 
             .card{
-                background-color: #222 ;
+                background-color: #2a2c2d ;
                 border-color: #de5285 !important;
                 width: 100%;
-                min-width: 285px;
+                min-width: 245px;
                 margin-top: 50px;
             }
             .card-body{
                 width: 100%;
-                min-width: 300px;
+                min-width: 260px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -106,12 +106,34 @@
                 -webkit-box-shadow: none !important;
                 box-shadow: none  !important;
             }
+            .modal-content{
+                background-color: #222;
+            }
+            .footer{
+                justify-content: flex-end;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
         </style>
     </head>
     <body>
         <div class="header text-center">
-            <h1>Gibberish by Team Vimanaz</h1>
+            <h1>Guess the Gibberish</h1>
         </div>
+
+        <div id="endGame" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="content">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="row justify-content-center">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <div class="my-auto justify-content-center">
             <div class="card mx-auto">
                 <div class="card-header">
@@ -138,6 +160,13 @@
                             <button class="btn btn-primary mx-auto" id="submit" onclick="nextQues()"" style="margin-bottom: 15px;">Submit Answer</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h5>Made with &#x2764; by Team Vimanaz</h5>
                 </div>
             </div>
         </div>
