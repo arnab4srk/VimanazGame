@@ -36,7 +36,7 @@ var questions = {
     },
     8: {
         question:"Tick of",
-        answer: "Take-Off",
+        answer: "TakeOff",
         hint: "head for somewhere else"
     },
     9: {
@@ -102,13 +102,19 @@ var questions = {
 }
 var i=0;
 var ans = document.getElementById("answer");
-let points =0;
-genQues();
+var points =0;
+var len = Object.keys(questions).length;
+var index = Math.floor(Math.random()*4 + 1);
+var inc  = Math.floor(Math.random()*2 + 1);
+genQues(index);
 genTimer();
-function genQues(){
-    index = Math.floor(Math.random()*Object.keys(questions).length + 1)
-    document.getElementById("question").innerHTML = JSON.stringify(questions[index].question);
-    //console.log(points);
+function genQues(ind){
+    i  = Math.floor(Math.random()*2 + 1);
+    for(i = ind; i < len;){
+        document.getElementById("question").innerHTML = JSON.stringify(questions[i].question);
+        break;
+    }
+    console.log(points,"***");
 }
 function genTimer(){
     var timeleft = 45;
@@ -138,13 +144,12 @@ function printHint(){
     document.getElementById("hintText").innerHTML = JSON.stringify(questions[index].hint);
 }
 function nextQues(){
+    console.log(points);
     let ans = document.getElementById("ans").value;
-    //console.log(questions[index].question.toLowerCase())
-    //console.log(ans.toLowerCase());
     document.getElementById("ans").value = "";
     document.getElementById("hintText").innerHTML = "";
-    if(ans.toLowerCase() == questions[index].answer.toLowerCase()){
+    if(ans.toLowerCase() == questions[i].answer.toLowerCase()){
         points++;
     }
-    genQues();
+    genQues(i+inc);
 }
