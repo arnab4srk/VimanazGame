@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +15,13 @@
 
 <body>
     <div class="preloader">
+    </div>
+    <div id="endGame" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-md modal-dialog-centered" role="content">
+            <div class="modal-content">
+                <h3 class="text-center">You scored <span id="points"></span> points.</h3>
+            </div>
+        </div>
     </div>
     <div class="firstScreen center">
         <img id="rocket" class="launching" src="https://image.flaticon.com/icons/svg/2929/2929373.svg">
@@ -64,12 +72,18 @@
         <div class="element"></div>
         <h5 class="score text-right">Score : <span id="scoreVal"></span></h5>
     </div>
-    <div id="endGame" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-md modal-dialog-centered" role="content">
-            <div class="modal-content">
-                <h3 class="text-center">You scored <span id="points"></span> points.</h3>
+    <div class="thirdScreen center" style="height: 100vh;">
+        <div class="container">
+            <h4 class="mcqQuestion text-center">Lorem ipsum dolor sit amet Quibusdam earum eveniet pariatur esse beatae sunt est quo?</h4>
+            <div class="optionContainer">
+                <button class="answerBtn" id="a">Lmao</button>
+                <button class="answerBtn" id="b">Noob</button>
+                <button class="answerBtn" id="c">NOOB</button>
+                <button class="answerBtn" id="d">Lmao NOOB</button>
             </div>
         </div>
+        <div class="element2"></div>
+        <h5 class="mcqscore text-right">Score : <span id="mcqscoreVal">69</span></h5>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -89,7 +103,7 @@
             rocket.classList.add("launchInitiate");
             genTimer();
             setTimeout(() => {
-                document.querySelector(".score").scrollIntoView({
+                document.querySelector(".fly").scrollIntoView({
                     behavior: 'smooth'
                 });
             }, 1000);

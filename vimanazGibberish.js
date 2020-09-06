@@ -100,6 +100,20 @@ var questions = {
         hint: "aerodynamic surface"
     }
 }
+
+var mcqQues = {
+    1: {
+        question : "Why lorem ipsum dolor sit amet?",
+        answer: "lmao NOOB",
+        options: {
+            a: "lmao",
+            b: "noob",
+            c: "NOOB",
+            d: "lmao NOOB"
+        },
+        hint: "^[a-z]\s[A-Z]$"
+    }
+}
 var i=0;
 var ans = document.getElementById("answer");
 var points =0;

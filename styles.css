@@ -36,26 +36,33 @@ body {
     height: 20vh;
     z-index: +999;
 }
-.launching{
+
+.launching {
     animation: launching 0.2s ease infinite;
 }
-.launchInitiate{
+
+.launchInitiate {
     animation: launch 1.5s ease-in;
 }
-@keyframes launching{
-    0%, 100%{
+
+@keyframes launching {
+
+    0%,
+    100% {
         transform: translateY(-2px);
     }
-    50%{
+
+    50% {
         transform: translateY(2px);
     }
 }
 
-@keyframes launch{
-    0%{
+@keyframes launch {
+    0% {
         transform: translateY(0);
     }
-    100%{
+
+    100% {
         transform: translateY(-100vh);
     }
 }
@@ -90,7 +97,8 @@ body {
     box-shadow: inset 8px 8px 16px #74bdd5,
         inset -8px -8px 16px #9effff;
 }
-.firstScreen .clouds{
+
+.firstScreen .clouds {
     position: absolute;
     top: 0;
     left: 0;
@@ -98,26 +106,31 @@ body {
     height: 100%;
     width: 100vw;
 }
-.firstScreen .clouds img{
+
+.firstScreen .clouds img {
     position: absolute;
     bottom: 0;
     height: 30%;
     animation: cloud calc(8s * var(--i)) linear infinite;
     pointer-events: none;
 }
-@keyframes cloud{
-    0%{
+
+@keyframes cloud {
+    0% {
         transform: translateX(-100%);
     }
-    100%{
+
+    100% {
         transform: translateX(100%);
     }
 }
+
 h1 {
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
 }
-.hintBtn{
+
+.hintBtn {
     width: 50%;
     height: 35px;
     outline: none;
@@ -128,7 +141,8 @@ h1 {
     font-weight: 900;
     max-width: 250px;
 }
-.submitAnsBtn{
+
+.submitAnsBtn {
     width: 50%;
     height: 35px;
     outline: none;
@@ -139,29 +153,38 @@ h1 {
     font-weight: 900;
     max-width: 250px;
 }
-.secondScreen{
+
+.secondScreen {
     position: relative;
-    background-color:#E5FDFF;
+    background-color: #E5FDFF;
     overflow: hidden;
 }
-.fly{
+
+.fly {
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 0;
     width: 100%;
+    height: 30vh;
 }
-.plane{
+
+.plane {
+    position: absolute;
+    bottom: 0;
     width: 150px;
     animation: flyaround 4s ease-in-out infinite;
 }
-@keyframes flyaround{
-    0%{
+
+@keyframes flyaround {
+    0% {
         transform: translateX(-100%);
     }
-    100%{
+
+    100% {
         transform: translate(100vw, -100px);
     }
 }
+
 .element {
     position: absolute;
     bottom: 0;
@@ -171,16 +194,59 @@ h1 {
     border-style: solid;
     border-width: 0 0 100px 100vw;
     border-color: transparent transparent #89defa transparent;
-  }
-  .score{
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      font-size: 1.75em;
-  }
-  .modal-content{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-  }
+}
+
+.score {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.75em;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.thirdScreen {
+    background-color: #89defa;
+    position: relative;
+}
+
+.element2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 0 0 100vw;
+    border-color: transparent transparent transparent #E5FDFF;
+}
+
+.mcqscore {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.75em;
+}
+
+.optionContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.answerBtn{
+    min-width: 40%;
+    min-height: 40px;
+    margin: 5% 5% 0% 5%;
+    outline: none;
+    border: 2px solid #F93357;
+    background-color: #fdafbd;
+    color: #F93357;
+}
+.answerBtn :active, .answerBtn :focus, .submitAnsBtn :active, .hintBtn:active{
+    outline: 0;
+}
