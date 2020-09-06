@@ -105,27 +105,24 @@ var ans = document.getElementById("answer");
 var points =0;
 var len = Object.keys(questions).length;
 var index = Math.floor(Math.random()*4 + 1);
-var inc  = Math.floor(Math.random()*2 + 1);
+const inc  = Math.floor(Math.random()*2 + 1);
 genQues(index);
-genTimer();
+
 function genQues(ind){
-    i  = Math.floor(Math.random()*2 + 1);
+    i  = Math.floor(Math.random()*inc);
     for(i = ind; i < len;){
         document.getElementById("question").innerHTML = JSON.stringify(questions[i].question);
         break;
     }
-    console.log(points,"***");
 }
 function genTimer(){
-    var timeleft = 45;
+    var timeleft = 60;
     var Timer = setInterval(function(){
       if(timeleft < 0){
         console.log(points);
-        //location.href = "#";
         displayScore(points);
         $('#endGame').modal('show');
         clearInterval(Timer);
-        //genQues();
       } else {
         document.getElementById("countdown").innerHTML = timeleft;
       }
@@ -141,15 +138,15 @@ function displayScore(points){
     document.getElementById("question").innerHTML = "You've already attempted it.";
 }
 function printHint(){
-    document.getElementById("hintText").innerHTML = JSON.stringify(questions[index].hint);
+    document.getElementById("hintText").innerHTML = JSON.stringify(questions[i].hint);
 }
 function nextQues(){
-    console.log(points);
     let ans = document.getElementById("ans").value;
     document.getElementById("ans").value = "";
     document.getElementById("hintText").innerHTML = "";
     if(ans.toLowerCase() == questions[i].answer.toLowerCase()){
         points++;
+        document.getElementById("scoreVal").innerHTML = points.toString(10);
     }
     genQues(i+inc);
 }
