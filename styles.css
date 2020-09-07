@@ -154,6 +154,18 @@ h1 {
     max-width: 250px;
 }
 
+.skipBtn{
+    width: 50%;
+    height: 35px;
+    outline: none;
+    border: 0;
+    background-color: #fdafbd;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 900;
+    max-width: 250px;
+}
+
 .secondScreen {
     position: relative;
     background-color: #E5FDFF;

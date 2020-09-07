@@ -120,14 +120,17 @@ var points =0;
 var len = Object.keys(questions).length;
 var index = Math.floor(Math.random()*4 + 1);
 const inc  = Math.floor(Math.random()*2 + 1);
+var prevIndex;
 genQues(index);
 
 function genQues(ind){
-    i  = Math.floor(Math.random()*inc);
-    for(i = ind; i < len;){
-        document.getElementById("question").innerHTML = JSON.stringify(questions[i].question);
-        break;
+    if(ind > len){
+        index = 0 ;
+        ind = index + inc;
     }
+    prevIndex = ind;
+    index = ind;
+    document.getElementById("question").innerHTML = JSON.stringify(questions[ind].question);
 }
 function genTimer(){
     var timeleft = 60;
@@ -152,15 +155,18 @@ function displayScore(points){
     document.getElementById("question").innerHTML = "You've already attempted it.";
 }
 function printHint(){
-    document.getElementById("hintText").innerHTML = JSON.stringify(questions[i].hint);
+    document.getElementById("hintText").innerHTML = JSON.stringify(questions[prevIndex].hint);
 }
 function nextQues(){
     let ans = document.getElementById("ans").value;
     document.getElementById("ans").value = "";
     document.getElementById("hintText").innerHTML = "";
-    if(ans.toLowerCase() == questions[i].answer.toLowerCase()){
+    if(ans === null){
+        genQues(index + inc);
+    }
+    if(ans.toLowerCase() == questions[prevIndex].answer.toLowerCase()){
         points++;
         document.getElementById("scoreVal").innerHTML = points.toString(10);
     }
-    genQues(i+inc);
+    genQues(index+inc);
 }
