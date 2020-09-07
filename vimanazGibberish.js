@@ -36,7 +36,7 @@ var questions = {
     },
     8: {
         question:"Tick of",
-        answer: "TakeOff",
+        answer: "Take-off",
         hint: "head for somewhere else"
     },
     9: {
