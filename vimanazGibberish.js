@@ -336,7 +336,7 @@ function mcqTimer(){
     var timeleft = 60;
     var Timer = setInterval(function () {
         if (timeleft < 0 || mcqI > 15) {
-            console.log(points + mcqPoints);
+            //console.log(points + mcqPoints);
             displayScore(points + mcqPoints);
             $('#endGame').modal('show');
             clearInterval(Timer);
