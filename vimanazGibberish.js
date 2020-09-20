@@ -366,7 +366,17 @@ function checkAnsMCQ(option){
     if(mcqQues[mcqI].answer === mcqQues[mcqI].options[option]){
         mcqPoints++;
         document.querySelector("#mcqscoreVal").innerHTML = mcqPoints
+        document.getElementById(option).style.backgroundColor = '#00a005';
+        document.getElementById(option).style.color = "white";
+        setTimeout(() => {
+            document.getElementById(option).style.backgroundColor = '#e5fdff';
+            document.getElementById(option).style.color = '#222';
+            clearScr();
+            genMCQ(++mcqI);
+        }, 200);
     }
-    clearScr();
-    genMCQ(++mcqI);
+    else{
+        clearScr();
+        genMCQ(++mcqI);
+    }
 }

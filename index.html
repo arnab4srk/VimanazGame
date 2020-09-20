@@ -115,6 +115,14 @@
             }, 1000);
         });
     </script>
+    <script>
+        const keyUp = document.getElementById("ans");
+        keyUp.addEventListener('keyup', function(event){
+            if(event.keyCode === 13){
+                nextQues();
+            }
+        });
+    </script>
 </body>
 
 </html>

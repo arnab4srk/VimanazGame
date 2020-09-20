@@ -262,9 +262,9 @@ h1 {
     min-width: 40%;
     min-height: 40px;
     outline: none;
-    border: 2px solid #F93357;
-    background-color: #fdafbd;
-    color: #F93357;
+    border: 2px solid #222;
+    background-color: #E5FDFF;
+    color: #222;
     margin: 5% 5% 0% 5%;
 }
 
