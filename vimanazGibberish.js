@@ -289,6 +289,7 @@ function genTimer() {
     var timeleft = 60;
     var Timer = setInterval(function () {
         if (timeleft < 0) {
+            document.getElementById("ans").value = "";
             setTimeout(() => {
                 document.querySelector(".element2").scrollIntoView({
                     behavior: 'smooth'
