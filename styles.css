@@ -216,6 +216,8 @@ h1 {
 }
 
 .modal-content {
+    background-color: #74bdd5;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -245,19 +247,33 @@ h1 {
     font-size: 1.75em;
 }
 
+.mcqQuestion{
+    min-height: 100px;
+}
+
 .optionContainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 .answerBtn{
     min-width: 40%;
     min-height: 40px;
-    margin: 5% 5% 0% 5%;
     outline: none;
     border: 2px solid #F93357;
     background-color: #fdafbd;
     color: #F93357;
+    margin: 5% 5% 0% 5%;
+}
+
+@media only screen and (max-width : 500px){
+    .answerBtn{
+        width: 80% !important;
+        margin: 0%;
+        margin-top: 15px;
+    }
 }
 .answerBtn :active, .answerBtn :focus, .submitAnsBtn :active, .hintBtn:active{
     outline: 0;
