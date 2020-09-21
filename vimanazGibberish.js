@@ -268,27 +268,21 @@ var i = 0;
 var ans = document.getElementById("answer");
 var points = 0;
 var len = Object.keys(questions).length;
-var index = Math.floor(Math.random() * 4 + 1);
-const inc = Math.floor(Math.random() * 2 + 1);
+let index = 1;
+const inc = 0;
 var prevIndex;
 let mcqI = 1;
 let mcqPoints = 0;
-genQues(index);
+genQues();
 
-function genQues(ind) {
-    if (ind > len) {
-        index = 0;
-        ind = index + inc;
-    }
-    prevIndex = ind;
-    index = ind;
-    document.getElementById("question").innerHTML = JSON.stringify(questions[ind].question);
+function genQues() {
+    document.getElementById("question").innerHTML = JSON.stringify(questions[index].question);
 }
 
 function genTimer() {
     var timeleft = 60;
     var Timer = setInterval(function () {
-        if (timeleft < 0) {
+        if (timeleft < 0 || index >= 20) {
             document.getElementById("ans").value = "";
             setTimeout(() => {
                 document.querySelector(".element2").scrollIntoView({
@@ -315,28 +309,26 @@ function displayScore(points) {
 }
 
 function printHint() {
-    document.getElementById("hintText").innerHTML = JSON.stringify(questions[prevIndex].hint);
+    document.getElementById("hintText").innerHTML = JSON.stringify(questions[index].hint);
 }
 
 function nextQues() {
     let ans = document.getElementById("ans").value;
+    //console.log(ans + " " + questions[index].answer.toLowerCase())
     document.getElementById("ans").value = "";
     document.getElementById("hintText").innerHTML = "";
-    if (ans === null) {
-        genQues(index + inc);
-    }
-    if (ans.toLowerCase() == questions[prevIndex].answer.toLowerCase()) {
+    if (ans.toLowerCase() === questions[index].answer.toLowerCase()) {
         points++;
         document.getElementById("scoreVal").innerHTML = points.toString(10);
     }
-    genQues(index + inc);
+    index++;
+    genQues();
 }
 
 function mcqTimer(){
     var timeleft = 60;
     var Timer = setInterval(function () {
         if (timeleft < 0 || mcqI > 15) {
-            //console.log(points + mcqPoints);
             displayScore(points + mcqPoints);
             $('#endGame').modal('show');
             clearInterval(Timer);
